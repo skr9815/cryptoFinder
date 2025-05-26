@@ -1,26 +1,32 @@
 {
+  "homepage": "https://skr9815.github.io/cryptoFinder",
   "name": "crypto-finder",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "vite",
-    "build": "vite build",
     "lint": "eslint .",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.11",
     "@mui/lab": "^6.0.0-beta.23",
-    "@mui/material": "^6.4.0",
+    "@mui/material": "^6.4.11",
     "axios": "^1.7.9",
+    "chart.js": "^4.4.9",
     "html-react-parser": "^5.2.5",
     "react": "^18.3.1",
     "react-alice-carousel": "^2.9.1",
     "react-chartjs-2": "^5.3.0",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.1.1"
+    "react-router-dom": "^7.1.1",
+    "recharts": "^2.15.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -31,6 +37,7 @@
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
+    "gh-pages": "^6.3.0",
     "globals": "^15.14.0",
     "vite": "^6.0.5"
   }

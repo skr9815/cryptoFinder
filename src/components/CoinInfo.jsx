@@ -6,10 +6,31 @@ import {
   ThemeProvider,
   createTheme,
   Box,
-  Typography,
   Container
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
+
+// Import Chart.js and register required components
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+} from 'chart.js';
+
+// Register Chart.js components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 import { HistoricalChart } from "../config/api.jsx";
 import SelectButton from "./SelectButton.jsx";
@@ -31,7 +52,7 @@ const CoinInfo = ({ coin }) => {
   useEffect(() => {
     fetchHistoricData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [days]);
+  }, [currency, days]);
 
   const theme = createTheme({
     palette: {
@@ -98,9 +119,18 @@ const CoinInfo = ({ coin }) => {
                 ],
               }}
               options={{
+                responsive: true,
                 elements: {
                   point: {
                     radius: 1,
+                  },
+                },
+                plugins: {
+                  legend: {
+                    position: 'top',
+                  },
+                  title: {
+                    display: false,
                   },
                 },
               }}
